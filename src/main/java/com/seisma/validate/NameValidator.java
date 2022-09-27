@@ -3,6 +3,7 @@ package com.seisma.validate;
 import org.apache.log4j.Logger;
 
 import com.seisma.dao.Topic;
+import com.seisma.dao.TopicConfig;
 import com.seisma.main.TopicRuleFactory;
 
 public class NameValidator implements Validatable {
@@ -11,9 +12,15 @@ public class NameValidator implements Validatable {
 
 	public boolean validate(Topic topic) {
 		String curTopic = topic.getTopic();
-		String configName = TopicRuleFactory.getInstance().getTopic(curTopic).getName();
-		logger.debug("expected : \t "+ configName + " - actual " + curTopic  );
-		return configName.equals(topic.getName());
+		
+		TopicConfig configTopicObj = TopicRuleFactory.getInstance().getTopic(curTopic);
+		boolean retValue = false; 
+		if (configTopicObj != null) {
+			String configName = configTopicObj.getName();
+			logger.debug("expected : \t "+ configName + " - actual " + curTopic  );
+			retValue = configName.equals(topic.getName());
+		}
+		return retValue;
 	}
 
 }

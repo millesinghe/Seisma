@@ -19,10 +19,15 @@ public class DescriptionValidator implements Validatable {
 		
 		logger.debug("Desc length \t: "+currTopicDescLength);
 		TopicConfig conf = TopicRuleFactory.getInstance().getTopic(curTopic);
+		boolean returnRes = true;
+		
+		if (conf == null) {
+			return false;
+		}
+		
 		List<TopicRules> ruleList = conf.getRules();
 		logger.debug("Rules Count \t: "+ruleList.size());
 		
-		boolean returnRes = true;
 		
 		for(TopicRules rule : ruleList) {
 			if (rule.getType().equalsIgnoreCase(Condition.LESS.toString())) {
