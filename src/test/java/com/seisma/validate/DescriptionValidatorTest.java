@@ -51,5 +51,18 @@ public class DescriptionValidatorTest{
 		
 		assertEquals(false,new DescriptionValidator().validate(topicB));
 	}
+	
+	@Test
+	@DisplayName("Test Topic-C Name Out of Scope")
+	void validateTopicC() {
+		
+		String topicId = "C";
+		String topicName = "c";
+		String topicDesc = "qwertyuioplkjhg";
+		
+		Topic topicA = new Topic(topicId, topicName, topicDesc);
+		
+		assertEquals(false,new NameValidator().validate(topicA));
+	}
 
 }
