@@ -24,3 +24,14 @@ Validating application for Topic contents
 - JUnit
 
 ### Test-cases
+#### # NameValidatorTest
+- Test Topic-C Name Out of Scope
+- Test Topic-A Name Incorrect
+- Test Topic-B Name
+- Test Topic-A Name
+
+#### # DescriptionValidatorTest
+- Test Topic-A Desc more than 10
+- Test Topic-A Desc less than 10
+- Test Topic-B Desc less than 40
+- Test Topic-C Name Out of Scope
