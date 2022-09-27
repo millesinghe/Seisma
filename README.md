@@ -17,7 +17,8 @@ Validating application for Topic contents
 - Topc description rules are only with the length of the description. 
 - 
 ### Configurations
-
+- resources/topic.json - *file user can use to validate the topics*
+- resources/topicrules.json - *File which pre definde rule set of the topics*
 ### Third-party Libraries
 - jackson-databind
 - Log4j
