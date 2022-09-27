@@ -6,8 +6,8 @@ import org.apache.log4j.Logger;
 
 import com.seisma.dao.Topic;
 import com.seisma.dao.TopicConfig;
-import com.seisma.dao.TopicRuleFactory;
 import com.seisma.dao.TopicRules;
+import com.seisma.main.TopicRuleFactory;
 
 public class DescriptionValidator implements Validatable {
 

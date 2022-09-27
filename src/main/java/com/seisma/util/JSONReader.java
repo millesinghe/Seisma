@@ -17,8 +17,6 @@ public class JSONReader {
 
 	private static JSONReader reader;
 
-	private static ObjectMapper mapper;
-
 	private static Logger logger = Logger.getLogger(JSONReader.class);
 
 	private static final String filenameRule = "topicrules.json";
@@ -29,11 +27,10 @@ public class JSONReader {
 		try {
 			logger.info("loaded the " + fileName + " file");
 			File file = reader.getFileFromResource(fileName);
-			return mapper.readValue(file, classType);
+			return new ObjectMapper().readValue(file, classType);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		;
 		return null;
 	}
 
@@ -54,7 +51,6 @@ public class JSONReader {
 		TopicConfig[] listTopics = null;
 		if (reader == null) {
 			reader = new JSONReader();
-			mapper = new ObjectMapper();
 			listTopics = (TopicConfig[]) readJSON(filenameRule,
 					TopicConfig[].class);
 		}
@@ -67,7 +63,6 @@ public class JSONReader {
 		Topic[] listTopics = (Topic[]) readJSON(filenameTopic,
 				Topic[].class);
 		return listTopics;
-
 	}
 
 }

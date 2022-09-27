@@ -2,7 +2,6 @@ package com.seisma.main;
 
 import org.apache.log4j.Logger;
 
-import com.seisma.dao.TopicRuleFactory;
 import com.seisma.validate.ValidatorManager;
 
 public class MainClass {
@@ -12,7 +11,7 @@ public class MainClass {
 	public static void main(String[] args) {
 		
 		logger.info("Starting the Application");
-		TopicRuleFactory.getInstance().initTopicConditions();;
+		TopicRuleFactory.getInstance();;
 
 		logger.info("Starting to validate the Topic JSON");
 		ValidatorManager v = new ValidatorManager();

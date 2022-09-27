@@ -3,11 +3,11 @@ package com.seisma.validate;
 import org.apache.log4j.Logger;
 
 import com.seisma.dao.Topic;
-import com.seisma.dao.TopicRuleFactory;
+import com.seisma.main.TopicRuleFactory;
 
 public class NameValidator implements Validatable {
 	
-	private static Logger logger = Logger.getLogger(ValidatorManager.class);
+	private static Logger logger = Logger.getLogger(NameValidator.class);
 
 	public boolean validate(Topic topic) {
 		String curTopic = topic.getTopic();
