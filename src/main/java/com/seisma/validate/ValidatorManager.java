@@ -1,10 +1,14 @@
 package com.seisma.validate;
 
+import org.apache.log4j.Logger;
+
 import com.seisma.dao.Topic;
 import com.seisma.util.JSONReader;
 
 public class ValidatorManager {
 
+	private static Logger logger = Logger.getLogger(ValidatorManager.class);
+	
 	public void validate() {
 
 		try {
@@ -13,24 +17,23 @@ public class ValidatorManager {
 			for (int i = 0; i < topicList.length; i++) {
 				Topic topic = topicList[i];
 				
+				logger.debug("["+i+"] TOPIC : "+ topic.getTopic() + "------------");
 				boolean isValidName = new NameValidator().validate(topic);
 				boolean isValidDesc = new DescriptionValidator().validate(topic);
-				
+
 				String msg = "";
 				if(isValidName && isValidDesc) {
-					msg = "["+i+"] \t- PASS\t : "+ topic.getName();
+					msg = "["+i+"] PASS\t : "+ topic.getName();
+					logger.info(msg);
 				}else {
-					msg = "["+i+"] \t- FAIL\t : "+ topic.getName();
+					msg = "["+i+"] FAIL\t : "+ topic.getName();
+					logger.warn(msg);
 				}
-				System.out.println(msg);
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("ERROR", e);
 		}
-
-		System.out.println("--- END ---");
 	}
 
 }
