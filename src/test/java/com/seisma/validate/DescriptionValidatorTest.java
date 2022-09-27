@@ -11,8 +11,6 @@ import com.seisma.main.TopicRuleFactory;
 
 public class DescriptionValidatorTest{
 	
-	private TopicRuleFactory configTopic = TopicRuleFactory.getInstance();
-	
 	@Test
 	@DisplayName("Test Topic-A Desc more than 10")
 	void validateTopicAMoreDesc10() {

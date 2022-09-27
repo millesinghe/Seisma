@@ -11,8 +11,6 @@ import com.seisma.main.TopicRuleFactory;
 
 public class NameValidatorTest{
 	
-	private TopicRuleFactory configTopic = TopicRuleFactory.getInstance();
-	
 	@Test
 	@DisplayName("Test Topic-A Name")
 	void validateTopicAName() {
